@@ -1,4 +1,5 @@
 import './common/style.scss'
+import '../data/textData'
 
 // import hook
 import { useContext } from 'react'
@@ -9,16 +10,19 @@ import { ModalContext } from '../contexts/ModalContext'
 
 // import icons
 import cross from '../assets/icons/cross.svg'
+import { textData } from '../data/textData'
 
 export default function EditItemModal() {
-  const { handleNameChange, handlePriceChange, handleAddItem } = useContext(FunctionsContext)
+  const { handleNameChange, handlePriceChange, handleEditItem, selectedItem } = useContext(FunctionsContext)
   const { setShowModal } = useContext(ModalContext)
+  const { id, name, price } = selectedItem
+  const { modalTitle, namePlaceholder, pricePlaceholder, buttonContent } = textData.modals.editItemModal
 
   return (
     <div id="editItemModal">
       <div className="modalWrapper">
         <div className="title">
-          <h5>修改品項</h5>
+          <h5>{modalTitle}</h5>
           <img 
             onClick={() => setShowModal(false)}
             src={cross} 
@@ -27,20 +31,20 @@ export default function EditItemModal() {
         </div>
         <div className="inputs">
           <div className="input name">
-            <h5>原名 →</h5>
+            <h5>{name} →</h5>
             <input 
               type="text" 
-              placeholder="請輸入新品項名"
+              placeholder={namePlaceholder}
               onChange={(e) => {
                 handleNameChange?.(e.target.value)
               }}
             />
           </div>
           <div className="input price">
-            <h5>原價格 →</h5>
+            <h5>$ {price} →</h5>
             <input 
               type="number" 
-              placeholder="請輸入新價格"
+              placeholder={pricePlaceholder}
               onChange={(e) => {
                 handlePriceChange?.(e.target.value)
               }}
@@ -48,9 +52,11 @@ export default function EditItemModal() {
           </div>
         </div>
         <button
-          onClick={() => handleAddItem?.()}
+          onClick={() => {
+            handleEditItem?.(id)
+          }}
         >
-          確認
+          {buttonContent}
         </button>
       </div>
       

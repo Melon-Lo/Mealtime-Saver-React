@@ -1,4 +1,5 @@
 import './common/style.scss'
+import '../data/textData'
 
 // import hook
 import { useContext, useEffect } from 'react'
@@ -15,11 +16,18 @@ import Item from '../components/Item'
 import { FunctionsContext } from '../contexts/FunctionsContext'
 import { ModalContext } from '../contexts/ModalContext'
 import { ModeContext } from '../contexts/ModeContext'
+import { textData } from '../data/textData'
 
 export default function AppContainer() {
   const { currentItems, getItemsAsync, total } = useContext(FunctionsContext)
   const { setShowModal, setModalType } = useContext(ModalContext)
   const { mode, setMode } = useContext(ModeContext)
+
+  // import text
+  const { appTitle, totalText } = textData
+  const { addButton, editButton, deleteButton, confirmButton } = textData.buttons
+  const { nameProp, priceProp, quantityProp, subtotalProp, editProp, deleteProp } = textData.itemProperties
+  const { editModeText, deleteModeText } = textData.modes
 
   const itemsData = currentItems.map(item => {
     return (
@@ -39,7 +47,7 @@ export default function AppContainer() {
 
   return (
     <section id="appContainer">
-      <div className="titleBox">用餐救星</div>
+      <div className="titleBox">{appTitle}</div>
       <div className="editBox">
         { mode === 'normal' &&
           <button 
@@ -49,7 +57,7 @@ export default function AppContainer() {
               setModalType('add')
             }}
           >
-            新增
+            {addButton}
           </button>
         }
         { mode !== 'delete' && 
@@ -57,7 +65,7 @@ export default function AppContainer() {
             className="edit"
             onClick={() => setMode('edit')}
           >
-            { mode === 'edit' ? '【編輯模式】點選品項右側的筆進行編輯' : '編輯'}
+            { mode === 'edit' ? editModeText : editButton}
           </button>
         }
         { mode !== 'edit' && 
@@ -65,7 +73,7 @@ export default function AppContainer() {
             className="delete"
             onClick={() => setMode('delete')}
           >
-            { mode === 'delete' ? '【刪除模式】點選品項右側的 X 進行刪除' : '刪除'}
+            { mode === 'delete' ? deleteModeText : deleteButton}
           </button>
         }
         { mode !== 'normal' &&
@@ -73,26 +81,26 @@ export default function AppContainer() {
             className="finish"
             onClick={() => setMode('normal')}
           >
-            完成
+            {confirmButton}
           </button>
         }
       </div>
       <div className="itemBox">
         <div className="itemHeadings">
-          <h5>品項</h5>
-          <h5>價格</h5>
-          <h5>數量</h5>
-          <h5>小計</h5>
-          { mode === 'delete' && <h5>刪除</h5>}
-          { mode === 'edit' && <h5>修改</h5>}
+          <h5>{nameProp}</h5>
+          <h5>{priceProp}</h5>
+          <h5>{quantityProp}</h5>
+          <h5>{subtotalProp}</h5>
+          { mode === 'delete' && <h5>{deleteProp}</h5>}
+          { mode === 'edit' && <h5>{editProp}</h5>}
         </div>
         <div className="itemCollection">
           {itemsData}
         </div>
       </div>
       <div className="totalBox">
-        <h5>總計：${total}</h5>
-        <button>確認</button>
+        <h5>{totalText}：${total}</h5>
+        <button>{confirmButton}</button>
       </div>
     </section>
   )

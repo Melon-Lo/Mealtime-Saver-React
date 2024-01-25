@@ -20,7 +20,7 @@ export default function Item({
   price,
   quantity
 }) {
-  const { handleDelete, handleCalculate } = useContext(FunctionsContext)
+  const { handleDelete, handleCalculate, setSelectedItem } = useContext(FunctionsContext)
   const { setShowModal, setModalType } = useContext(ModalContext)
   const { mode } = useContext(ModeContext)
 
@@ -62,6 +62,7 @@ export default function Item({
             onClick={() => {
               setShowModal(true)
               setModalType('edit')
+              setSelectedItem({ id: id, name: name, price: price })
             }}
             className="icon" 
             src={pen} 

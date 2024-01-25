@@ -1,4 +1,5 @@
 import './common/style.scss'
+import '../data/textData'
 
 // import hook
 import { useContext } from 'react'
@@ -9,16 +10,18 @@ import { ModalContext } from '../contexts/ModalContext'
 
 // import icons
 import cross from '../assets/icons/cross.svg'
+import { textData } from '../data/textData'
 
 export default function AddItemModal() {
   const { handleNameChange, handlePriceChange, handleAddItem } = useContext(FunctionsContext)
   const { setShowModal } = useContext(ModalContext)
+  const { modalTitle, nameTitle, priceTitle, namePlaceholder, pricePlaceholder, buttonContent } = textData.modals.addItemModal
 
   return (
     <div id="addItemModal">
       <div className="modalWrapper">
         <div className="title">
-          <h5>新增品項</h5>
+          <h5>{modalTitle}</h5>
           <img 
             onClick={() => setShowModal(false)}
             src={cross} 
@@ -27,20 +30,20 @@ export default function AddItemModal() {
         </div>
         <div className="inputs">
           <div className="input name">
-            <h5>品項名</h5>
+            <h5>{nameTitle}</h5>
             <input 
               type="text" 
-              placeholder="請輸入品項名"
+              placeholder={namePlaceholder}
               onChange={(e) => {
                 handleNameChange?.(e.target.value)
               }}
             />
           </div>
           <div className="input price">
-            <h5>價格</h5>
+            <h5>{priceTitle}</h5>
             <input 
               type="number" 
-              placeholder="請輸入價格"
+              placeholder={pricePlaceholder}
               onChange={(e) => {
                 handlePriceChange?.(e.target.value)
               }}
@@ -50,7 +53,7 @@ export default function AddItemModal() {
         <button
           onClick={() => handleAddItem?.()}
         >
-          確認
+          {buttonContent}
         </button>
       </div>
       

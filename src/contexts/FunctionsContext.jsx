@@ -16,13 +16,18 @@ export default function FunctionsContextProvider({ children }) {
   const [currentItems, setCurrentItems] = useState([])
   const [inputNameValue, setInputNameValue] = useState('')
   const [inputPriceValue, setInputPriceValue] = useState('')
+  const [selectedItem, setSelectedItem] = useState({
+    id: undefined,
+    name: '',
+    price: undefined,
+  })
   const { setShowModal } = useContext(ModalContext)
 
   const total = currentItems.reduce((acc, curr) => {
     return acc + curr.price * curr.quantity
   }, 0)
 
-  // get items
+  ////////// get items //////////
   const getItemsAsync = async () => {
     try {
       const items = await getItems()
@@ -32,7 +37,7 @@ export default function FunctionsContextProvider({ children }) {
     } 
   }
 
-  // add a new item
+  ////////// add a new item //////////
   
   // name: 0-10 words
   const handleNameChange = (value) => {
@@ -92,18 +97,72 @@ export default function FunctionsContextProvider({ children }) {
         showConfirmButton: false
       })
 
-      // clear data
-      setInputNameValue('')
-      setInputPriceValue('')
-      // setCurrentItems([])
+      // close modal
       setShowModal(false)
-
     } catch (error) {
       console.error(error)
     }
   }
 
-  // patch item
+  ////////// patch item //////////
+  const handleEditItem = async (id) => {
+    // name & price can't be blank
+    if(inputNameValue.length === 0) {
+      Swal.fire({
+        icon: 'error',
+        text: '品項名稱不能為空白！',
+        timer: 1500
+      })
+      return
+    }
+
+    if(inputPriceValue.length === 0) {
+      Swal.fire({
+        icon: 'error',
+        text: '價格不能為空白！',
+        timer: 1500
+      })
+      return
+    }
+
+    const currentItem = currentItems.find(item => item.id === id)
+
+    try {
+      await patchItem({
+        id,
+        name: inputNameValue,
+        price: inputPriceValue,
+        quantity: 1,
+      })
+
+      setCurrentItems(prevItems => {
+        return prevItems.map(item => {
+          if(item.id === id) {
+            return {
+              ...item,
+              name: inputNameValue,
+              price: inputPriceValue,
+              quantity: 1,
+            }
+          }
+          return item
+        })
+      })
+
+      Swal.fire({
+        icon: 'success',
+        text: '修改成功！',
+        timer: 1000,
+        showConfirmButton: false
+      })
+
+      // close modal
+      setShowModal(false)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const handleCalculate = async ({ id }, plusNum ) => {
     const currentItem = currentItems.find(item => item.id === id)
 
@@ -131,7 +190,7 @@ export default function FunctionsContextProvider({ children }) {
     }
   }
 
-  // delete item
+  ////////// delete item //////////
   const handleDelete = async ({ id }) => {
 
     const result = await Swal.fire({
@@ -162,6 +221,8 @@ export default function FunctionsContextProvider({ children }) {
         currentItems,
         inputNameValue,
         inputPriceValue,
+        selectedItem,
+        setSelectedItem,
         setCurrentItems,
         getItemsAsync,
         handleAddItem,
@@ -169,6 +230,8 @@ export default function FunctionsContextProvider({ children }) {
         handleNameChange,
         handlePriceChange,
         handleCalculate,
+        handleAddItem,
+        handleEditItem,
         total,
       }}
     >

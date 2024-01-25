@@ -9,7 +9,7 @@ import { FunctionsContext } from '../contexts/FunctionsContext'
 import { ModalContext } from '../contexts/ModalContext'
 
 // import icons
-import cross from '../assets/icons/cross.svg'
+import cross from '../assets/icons/cross_black.png'
 import { textData } from '../data/textData'
 
 export default function AddItemModal() {

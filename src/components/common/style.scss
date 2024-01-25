@@ -13,11 +13,11 @@
 
   .titleBox {
     width: 100%;
-    height: 50px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.6rem;
     background-color: #003e19;
     color: whitesmoke;
     text-align: center;
@@ -27,7 +27,8 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    padding: 1rem 0;
+    align-items: center;
+    padding: 1.5rem 0;
 
     button {
       min-width: 50px;
@@ -36,6 +37,7 @@
       border: none;
       color: whitesmoke;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      font-size: 1rem;
     }
 
     .add {
@@ -44,14 +46,43 @@
 
     .edit {
       background-color: #028c6a;
+
+      &.active {
+        height: auto;
+        max-width: 70%;
+        background-color: transparent;
+        box-shadow: none;
+        color: #028c6a;
+        font-size: 1rem;
+        font-weight: 800;
+      }
     }
 
     .delete {
       background-color: #e81e25;
+
+      &.active {
+        height: auto;
+        max-width: 70%;
+        background-color: transparent;
+        box-shadow: none;
+        color: #e81e25;
+        font-size: 1rem;
+        font-weight: 800;
+      }
     }
 
     .finish {
-      background-color: gray;
+      width: 60px;
+      height: 40px;
+
+      &.edit {
+        background-color: #028c6a;
+      }
+
+      &.delete {
+        background-color: #e81e25;
+      }
     }
   }
 
@@ -68,6 +99,14 @@
 
       h5 {
         font-size: 1rem;
+      }
+
+      .edit {
+        color: #028c6a;
+      }
+
+      .delete {
+        color: #e81e25;
       }
     }
 
@@ -86,6 +125,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          font-size: 1rem;
+          color: rgb(49, 49, 49);
         }
 
         .title {
@@ -93,29 +134,36 @@
         }
 
         .price {
-
+          transform: translateX(-10%);
         }
 
         .quantity {
           // width: 50px;
+          // width: 50px;
           display: flex;
-          justify-content: space-around;
+          justify-content: space-between;
           align-items: center;
 
           span {
-            font-size: 1rem;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            b {
+              font-size: 1.2rem;
+              margin-left: .3rem;
+            }
           }
 
           .controlButtons {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             // margin-left: .5rem;
           }
-        }
-
-        .subtotal {
-        }
-
-        .delete {
-
         }
       }
     }
@@ -128,17 +176,22 @@
     align-items: center;
 
     h5 {
+      font-size: 1.5rem;
+      font-weight: 400;
 
+      b {
+        font-weight: 800;
+      }
     }
 
     button {
-      width: 60px;
-      height: 30px;
+      padding: .5rem 1rem;
       border: none;
       background-color: #f2ab39;
       border-radius: 10px;
       color: whitesmoke;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      font-size: 1.5rem;
     }
   }
 }
@@ -171,7 +224,6 @@
     .title {
       position: relative;
       width: 100%;
-      
 
       h5 {
         margin: 0;
@@ -179,15 +231,15 @@
         text-align: center;
         background-color: #283b42;
         color: whitesmoke;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       img {
         position: absolute;
         top: .8rem;
         right: .8rem;
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
         fill: white;
         cursor: pointer;
       }
@@ -204,33 +256,26 @@
         align-items: center;
 
         h5 {
-          font-size: .8rem;
+          font-size: 1rem;
           margin: 1rem 0;
           color: rgb(49, 49, 49);
         }
 
         input {
+          height: 1.5rem;
         }
-      }
-
-      .name {
-
-      }
-
-      .price {
-
       }
     }
 
     button {
       margin: 1.5rem 0;
-      width: 60px;
-      height: 30px;
+      padding: .5rem 1rem;
       border: none;
       background-color: #1d6a96;
       border-radius: 10px;
       color: whitesmoke;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      font-size: 1.2rem;
       cursor: pointer;
     }
   }
@@ -271,15 +316,15 @@
         text-align: center;
         background-color: #370d00;
         color: whitesmoke;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
 
       img {
         position: absolute;
         top: .8rem;
         right: .8rem;
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
         fill: white;
         cursor: pointer;
       }
@@ -294,37 +339,31 @@
       .input {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
 
         h5 {
-          font-size: .8rem;
+          font-size: 1rem;
           margin: 1rem 0;
           color: rgb(49, 49, 49);
         }
 
         input {
+          margin: 1rem 0.5rem;
+          height: 1.5rem;
         }
-      }
-
-      .name {
-
-      }
-
-      .price {
-
       }
     }
 
     button {
       margin: 1.5rem 0;
-      width: 60px;
-      height: 30px;
+      padding: .5rem 1rem;
       border: none;
       background-color: #a46843;
       border-radius: 10px;
       color: whitesmoke;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      font-size: 1.4rem;
       cursor: pointer;
     }
   }
@@ -332,6 +371,11 @@
 
 .icon {
   cursor: pointer;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
+
+  &.pen {
+    width: 20px;
+    height: 20px;
+  }
 }

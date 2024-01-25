@@ -4,13 +4,13 @@
       "id": "c994",
       "name": "你好嗎",
       "price": 100,
-      "quantity": 1
+      "quantity": 8
     },
     {
       "id": "0552",
       "name": "www",
       "price": 12,
-      "quantity": 46
+      "quantity": 5
     },
     {
       "id": "a8cd",
@@ -23,12 +23,6 @@
       "name": "asdf",
       "price": 2,
       "quantity": 4
-    },
-    {
-      "id": "f4ac",
-      "name": "ffasdf",
-      "price": 999,
-      "quantity": 5
     }
   ]
 }

@@ -32,7 +32,8 @@ export const textData = {
   },
   modes: {
     editModeText: '【編輯模式】點擊項目右側的筆修改名字或價格',
-    deleteModeText: '【刪除模式】點擊項目右側的 X 刪除',
+    deleteModeText: '【刪除模式】點擊右側的 X 刪除該項目',
   },
   totalText: '總計',
+  appConfirmButton: '確認'
 }

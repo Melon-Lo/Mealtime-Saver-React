@@ -24,7 +24,7 @@ export default function AppContainer() {
   const { mode, setMode } = useContext(ModeContext)
 
   // import text
-  const { appTitle, totalText } = textData
+  const { appTitle, totalText, appConfirmButton } = textData
   const { addButton, editButton, deleteButton, confirmButton } = textData.buttons
   const { nameProp, priceProp, quantityProp, subtotalProp, editProp, deleteProp } = textData.itemProperties
   const { editModeText, deleteModeText } = textData.modes
@@ -62,7 +62,7 @@ export default function AppContainer() {
         }
         { mode !== 'delete' && 
           <button 
-            className="edit"
+            className={ mode === 'edit' ? 'edit active' : 'edit'}
             onClick={() => setMode('edit')}
           >
             { mode === 'edit' ? editModeText : editButton}
@@ -70,7 +70,7 @@ export default function AppContainer() {
         }
         { mode !== 'edit' && 
           <button 
-            className="delete"
+            className={ mode === 'delete' ? 'delete active' : 'delete'}
             onClick={() => setMode('delete')}
           >
             { mode === 'delete' ? deleteModeText : deleteButton}
@@ -78,7 +78,7 @@ export default function AppContainer() {
         }
         { mode !== 'normal' &&
           <button 
-            className="finish"
+            className={'finish ' + mode}
             onClick={() => setMode('normal')}
           >
             {confirmButton}
@@ -91,16 +91,16 @@ export default function AppContainer() {
           <h5>{priceProp}</h5>
           <h5>{quantityProp}</h5>
           <h5>{subtotalProp}</h5>
-          { mode === 'delete' && <h5>{deleteProp}</h5>}
-          { mode === 'edit' && <h5>{editProp}</h5>}
+          { mode === 'edit' && <h5 className='edit'>{editProp}</h5>}
+          { mode === 'delete' && <h5 className='delete'>{deleteProp}</h5>}
         </div>
         <div className="itemCollection">
           {itemsData}
         </div>
       </div>
       <div className="totalBox">
-        <h5>{totalText}：${total}</h5>
-        <button>{confirmButton}</button>
+        <h5>{totalText}：<b>${total}</b></h5>
+        <button>{appConfirmButton}</button>
       </div>
     </section>
   )

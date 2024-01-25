@@ -1,10 +1,10 @@
 import '../components/common/style.scss'
 
 // import icons
-import up from '../assets/icons/up-arrow.svg'
-import down from '../assets/icons/down-arrow.svg'
-import cross from '../assets/icons/cross.svg'
-import pen from '../assets/icons/pen.svg'
+import up from '../assets/icons/arrow_up.png'
+import down from '../assets/icons/arrow_down.png'
+import redCross from '../assets/icons/cross_red.png'
+import pen from '../assets/icons/pen.png'
 
 // import hook
 import { useContext } from 'react'
@@ -29,14 +29,14 @@ export default function Item({
       <div className="itemPiece title">{name}</div>
       <div className="itemPiece price">{'$' + price}</div>
       <div className="itemPiece quantity">
-        <span>{'X' + quantity}</span>
+        <span>x<b>{quantity}</b></span>
         <div className="controlButtons">
           <div className="up">
             <img 
               onClick={() => {
                 handleCalculate?.({ id: id }, 1)
               }}
-              className="icon" 
+              className="icon up" 
               src={up}
               alt="upIcon" 
             />
@@ -46,9 +46,8 @@ export default function Item({
               onClick={() => {
                 handleCalculate?.({ id: id }, -1)
               }}
-              className="icon" 
+              className="icon down" 
               src={down}
-              alt="downIcon" 
             />
           </div>
         </div>
@@ -64,9 +63,8 @@ export default function Item({
               setModalType('edit')
               setSelectedItem({ id: id, name: name, price: price })
             }}
-            className="icon" 
+            className="icon pen" 
             src={pen} 
-            alt="" 
           />
         </div>
       }
@@ -76,12 +74,10 @@ export default function Item({
         <div className="itemPiece delete">
           <img 
             onClick={() => {
-              console.log(id)
               handleDelete?.({ id: id })
             }}
             className="icon" 
-            src={cross} 
-            alt="" 
+            src={redCross} 
           />
         </div>
       }

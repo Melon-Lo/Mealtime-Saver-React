@@ -47,7 +47,7 @@ export default function OrderItemWrapper() {
 
   return (
     <>
-      {ordersData}
+      {ordersData.length === 0 ? '尚無訂單' : ordersData }
     </>
   )
 }

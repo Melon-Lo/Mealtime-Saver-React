@@ -20,7 +20,7 @@ import { ModeContext } from '../contexts/ModeContext'
 import { textData } from '../data/textData'
 
 export default function AppContainer() {
-  const { currentItems, getItemsAsync, total } = useContext(FunctionsContext)
+  const { currentItems, getItemsAsync, handleAddOrder, total } = useContext(FunctionsContext)
   const { setShowModal, setModalType } = useContext(ModalContext)
   const { mode, setMode } = useContext(ModeContext)
   const { appType } = useContext(AppTypeContext)
@@ -102,7 +102,11 @@ export default function AppContainer() {
       </div>
       <div className="totalBox">
         <h5>{totalText}：<b>${total}</b></h5>
-        <button>{appConfirmButton}</button>
+        <button
+          onClick={() => handleAddOrder()}
+        >
+          {appConfirmButton}
+        </button>
       </div>
     </section>
   )

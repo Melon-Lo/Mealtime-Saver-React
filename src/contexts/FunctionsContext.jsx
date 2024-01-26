@@ -9,7 +9,7 @@ import { ModalContext } from './ModalContext'
 import { AppTypeContext } from './AppTypeContext'
 
 // import api
-import { getItems, createItem, deleteItem, patchItem, getOrders } from '../api/items'
+import { getItems, createItem, deleteItem, patchItem, getOrders, createOrder } from '../api/items'
 
 // import data
 import dummyData from '../data/dummyData'
@@ -254,9 +254,52 @@ export default function FunctionsContextProvider({ children }) {
     setAppType(switchTo)
   }
 
-  useEffect(() => {
-    getOrders()
-  }, [])
+  ////////// get orders //////////
+
+  const getOrdersAsync = async () => {    
+    try {
+      const orders = await getOrders()
+      setCurrentOrders(orders.map(order => ({...order})))
+    } catch (error) {
+      console.error(error)
+    } 
+  }
+
+  ////////// add a order ///////////
+
+  const handleAddOrder = async () => {
+
+    try {
+      const data = await createOrder({
+        id: currentOrders.length + 1,
+        title: `訂單#${currentOrders.length + 1}`,
+        total: total,
+        items: currentItems,
+      })
+      
+      setCurrentOrders(prevOrders => {
+        return [
+          ...prevOrders,
+          {
+            id: currentOrders.length + 1,
+            title: `訂單#${currentOrders.length + 1}`,
+            total: total,
+            items: currentItems,
+          }
+        ]
+      })
+
+      // Swal.fire({
+      //   icon: 'success',
+      //   text: '新增訂單成功！',
+      //   timer: 1000,
+      //   showConfirmButton: false
+      // })
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <FunctionsContext.Provider
@@ -280,6 +323,8 @@ export default function FunctionsContextProvider({ children }) {
         handleAddItem,
         handleEditItem,
         switchAppType,
+        getOrdersAsync,
+        handleAddOrder,
         total,
       }}
     >

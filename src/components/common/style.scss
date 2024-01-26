@@ -1,3 +1,22 @@
+// basic settings
+
+.icon {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+
+  &.pen {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+// components styles
+
 #appContainer {
   margin-top: 2rem;
   width: 60vw;
@@ -438,13 +457,83 @@
   }
 }
 
-.icon {
-  cursor: pointer;
-  width: 15px;
-  height: 15px;
+.orderItemWrapper {
+  margin: 1rem 0;
+  width: 90%;
+  background-color: whitesmoke;
 
-  &.pen {
-    width: 20px;
-    height: 20px;
+  h3 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .orderHeadings {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    h5 {
+      font-size: 1rem;
+    }
+  }
+
+  .orderCollection {
+
+    .item {
+      margin: 1rem 0;
+      font-size: .8rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .itemPiece {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        color: rgb(49, 49, 49);
+      }
+
+      .title {
+        padding: 0 .5rem;
+      }
+
+      .price {
+        transform: translateX(-10%);
+      }
+
+      .quantity {
+        // width: 50px;
+        // width: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          b {
+            font-size: 1.2rem;
+            margin-left: .3rem;
+          }
+        }
+
+        .controlButtons {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          // margin-left: .5rem;
+        }
+      }
+    }
   }
 }

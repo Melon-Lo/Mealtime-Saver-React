@@ -55,9 +55,19 @@ export const deleteItem = async (id) => {
 export const getOrders = async () => {
   try {
     const res = await axios.get(`${baseUrl}/orders`)
-    console.log(res.data)
     return res.data
   } catch (error) {
     console.error('[Get items failed]: ', error)
+  }
+}
+
+// create a order
+export const createOrder = async (payload) => {
+  const { id, title, total, items } = payload
+  try {
+    const res = await axios.post(`${baseUrl}/orders`, { id, title, total, items })
+    return res.data
+  } catch (error) {
+    console.error('[Create item failed]: ', error)
   }
 }

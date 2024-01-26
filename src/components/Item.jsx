@@ -23,6 +23,7 @@ export default function Item({
   const { handleDelete, handleCalculate, setSelectedItem } = useContext(FunctionsContext)
   const { setShowModal, setModalType } = useContext(ModalContext)
   const { mode } = useContext(ModeContext)
+  const currentPath = window.location.pathname
 
   return (
     <div className="item">
@@ -30,7 +31,7 @@ export default function Item({
       <div className="itemPiece price">{'$' + price}</div>
       <div className="itemPiece quantity">
         <span>x<b>{quantity}</b></span>
-        <div className="controlButtons">
+        <div className={currentPath === '/order' ? "hidden" : "controlButtons"}>
           <div className="up">
             <img 
               onClick={() => {

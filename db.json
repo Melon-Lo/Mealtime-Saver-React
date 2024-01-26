@@ -23,6 +23,7 @@
     {
       "id": 1,
       "title": "訂單#1",
+      "total": 520,
       "items": [
         {
           "id": "c994",
@@ -41,18 +42,57 @@
     {
       "id": 2,
       "title": "訂單#2",
+      "total": 180,
       "items": [
         {
           "id": "c994",
           "name": "沙拉",
           "price": 70,
-          "quantity": 4
+          "quantity": 1
         },
         {
           "id": "0552",
           "name": "蚵仔煎",
           "price": 110,
-          "quantity": 5
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "訂單#3",
+      "total": 340,
+      "items": [
+        {
+          "id": 1,
+          "name": "牛排",
+          "price": 100,
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "雞排",
+          "price": 120,
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "訂單#4",
+      "total": 640,
+      "items": [
+        {
+          "id": 1,
+          "name": "牛排",
+          "price": 100,
+          "quantity": 4
+        },
+        {
+          "id": 2,
+          "name": "雞排",
+          "price": 120,
+          "quantity": 2
         }
       ]
     }

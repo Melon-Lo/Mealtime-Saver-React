@@ -12,6 +12,8 @@ import AddItemModal from "../components/AddItemModal"
 import EditItemModal from '../components/EditItemModal'
 import AppTypeSwitch from '../components/AppTypeSwitch'
 
+import OrderItemWrapper from '../components/OrderItemWrapper'
+
 export default function MainPage() {
   const { showModal, modalType } = useContext(ModalContext)
 

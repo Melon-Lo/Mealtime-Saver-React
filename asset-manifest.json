@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Mealtime-Saver-React/static/css/main.f1648e85.css",
-    "main.js": "/Mealtime-Saver-React/static/js/main.8193215a.js",
+    "main.js": "/Mealtime-Saver-React/static/js/main.c35a22b6.js",
     "static/media/arrow_down.png": "/Mealtime-Saver-React/static/media/arrow_down.2e1f1c50e1720f7876ec.png",
     "static/media/pen.png": "/Mealtime-Saver-React/static/media/pen.00cd647d13cff45185bc.png",
     "static/media/cross_black.png": "/Mealtime-Saver-React/static/media/cross_black.d91bf29aa68c5a60221d.png",
@@ -11,10 +11,10 @@
     "index.html": "/Mealtime-Saver-React/index.html",
     "static/media/cross.svg": "/Mealtime-Saver-React/static/media/cross.b8781debfc462e365deaccbb16136e9d.svg",
     "main.f1648e85.css.map": "/Mealtime-Saver-React/static/css/main.f1648e85.css.map",
-    "main.8193215a.js.map": "/Mealtime-Saver-React/static/js/main.8193215a.js.map"
+    "main.c35a22b6.js.map": "/Mealtime-Saver-React/static/js/main.c35a22b6.js.map"
   },
   "entrypoints": [
     "static/css/main.f1648e85.css",
-    "static/js/main.8193215a.js"
+    "static/js/main.c35a22b6.js"
   ]
 }

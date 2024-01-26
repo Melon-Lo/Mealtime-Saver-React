@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Mealtime-Saver/static/css/main.f1648e85.css",
+    "main.js": "/Mealtime-Saver/static/js/main.285ad457.js",
+    "static/media/arrow_down.png": "/Mealtime-Saver/static/media/arrow_down.2e1f1c50e1720f7876ec.png",
+    "static/media/pen.png": "/Mealtime-Saver/static/media/pen.00cd647d13cff45185bc.png",
+    "static/media/cross_black.png": "/Mealtime-Saver/static/media/cross_black.d91bf29aa68c5a60221d.png",
+    "static/media/cross_red.png": "/Mealtime-Saver/static/media/cross_red.aeec27d34d04f9b7e97f.png",
+    "static/media/up-arrow.svg": "/Mealtime-Saver/static/media/up-arrow.40099ab2c1fd5f10ed8caf9943871790.svg",
+    "static/media/down-arrow.svg": "/Mealtime-Saver/static/media/down-arrow.8e96b1c9209a5e8979e830aef8fe79d5.svg",
+    "index.html": "/Mealtime-Saver/index.html",
+    "static/media/cross.svg": "/Mealtime-Saver/static/media/cross.b8781debfc462e365deaccbb16136e9d.svg",
+    "main.f1648e85.css.map": "/Mealtime-Saver/static/css/main.f1648e85.css.map",
+    "main.285ad457.js.map": "/Mealtime-Saver/static/js/main.285ad457.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1648e85.css",
+    "static/js/main.285ad457.js"
+  ]
+}

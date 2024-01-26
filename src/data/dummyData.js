@@ -1,4 +1,4 @@
-{
+export default {
   "items": [
     {
       "name": "牛排",

@@ -2,12 +2,12 @@
 import { useContext } from 'react'
 
 // import contexts
-import { ModalContext } from '../../contexts/ModalContext'
+import { ModalContext } from '../contexts/ModalContext'
 
 // import components
-import AppContainer from "../../components/AppContainer"
-import AddItemModal from "../../components/AddItemModal"
-import EditItemModal from '../../components/EditItemModal copy'
+import AppContainer from "../components/AppContainer"
+import AddItemModal from "../components/AddItemModal"
+import EditItemModal from '../components/EditItemModal copy'
 
 export default function MainPage() {
   const { showModal, modalType } = useContext(ModalContext)

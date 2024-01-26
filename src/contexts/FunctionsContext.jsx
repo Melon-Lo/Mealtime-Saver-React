@@ -6,9 +6,14 @@ import Swal from 'sweetalert2'
 
 // import contexts
 import { ModalContext } from './ModalContext'
+import { AppTypeContext } from './AppTypeContext'
 
 // import api
 import { getItems, createItem, deleteItem, patchItem } from '../api/items'
+
+// import data
+import dummyData from '../data/dummyData'
+import { type } from '@testing-library/user-event/dist/type'
 
 export const FunctionsContext = createContext()
 
@@ -22,15 +27,23 @@ export default function FunctionsContextProvider({ children }) {
     price: undefined,
   })
   const { setShowModal } = useContext(ModalContext)
+  const { appType } = useContext(AppTypeContext)
+  const dummyDataItems = dummyData.items
 
   const total = currentItems.reduce((acc, curr) => {
     return acc + curr.price * curr.quantity
   }, 0)
 
   ////////// get items //////////
-  const getItemsAsync = async () => {
+
+  const getItemsAsync = async () => {    
     try {
-      const items = await getItems()
+      let items
+      if (appType === 'normal') {
+        items = dummyDataItems
+      } else if (appType === 'server') {
+        items = await getItems()
+      }
       setCurrentItems(items.map(item => ({...item})))
     } catch (error) {
       console.error(error)
@@ -56,7 +69,7 @@ export default function FunctionsContextProvider({ children }) {
     if(inputNameValue.length === 0) {
       Swal.fire({
         icon: 'error',
-        text: '品項名稱不能為空白！',
+        text: '項目名不能為空白！',
         timer: 1500
       })
       return
@@ -72,12 +85,22 @@ export default function FunctionsContextProvider({ children }) {
     }
 
     try {
-      const data = await createItem({
-        name: inputNameValue,
-        price: inputPriceValue,
-        quantity: 1,
-      })
-
+      let data
+      if (appType === 'normal') {
+        data = { 
+          id: currentItems.length + 1,
+          name: inputNameValue,
+          price: inputPriceValue,
+          quantity: 1
+        }
+      } else if (appType === 'server') {
+        data = await createItem({
+          name: inputNameValue,
+          price: inputPriceValue,
+          quantity: 1,
+        })
+      }
+      
       setCurrentItems(prevItems => {
         return [
           ...prevItems,
@@ -128,12 +151,14 @@ export default function FunctionsContextProvider({ children }) {
     const currentItem = currentItems.find(item => item.id === id)
 
     try {
-      await patchItem({
-        id,
-        name: inputNameValue,
-        price: inputPriceValue,
-        quantity: 1,
-      })
+      if (appType === 'server') {
+          await patchItem({
+          id,
+          name: inputNameValue,
+          price: inputPriceValue,
+          quantity: 1,
+        })
+      }
 
       setCurrentItems(prevItems => {
         return prevItems.map(item => {
@@ -169,10 +194,12 @@ export default function FunctionsContextProvider({ children }) {
     if (currentItem.quantity + plusNum < 0) return
 
     try {
-      await patchItem({
-        id,
-        quantity: currentItem.quantity + plusNum
-      })
+      if (appType === 'server') {
+        await patchItem({
+          id,
+          quantity: currentItem.quantity + plusNum
+        })
+      }
 
       setCurrentItems(prevItems => {
         return prevItems.map(item => {
@@ -192,7 +219,6 @@ export default function FunctionsContextProvider({ children }) {
 
   ////////// delete item //////////
   const handleDelete = async ({ id }) => {
-
     const result = await Swal.fire({
       icon: "warning",
       title: "確定要刪除嗎？",
@@ -205,7 +231,9 @@ export default function FunctionsContextProvider({ children }) {
     if (!result.isConfirmed) return
 
     try {
-      await deleteItem(id)
+      if (appType === 'server') {
+        await deleteItem(id)
+      }
 
       setCurrentItems(prevItems => {
         return prevItems.filter(item => item.id !== id)

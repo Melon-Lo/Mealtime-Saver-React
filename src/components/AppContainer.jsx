@@ -13,6 +13,7 @@ import cross from '../assets/icons/cross.svg'
 import Item from '../components/Item'
 
 // import contexts
+import { AppTypeContext } from '../contexts/AppTypeContext'
 import { FunctionsContext } from '../contexts/FunctionsContext'
 import { ModalContext } from '../contexts/ModalContext'
 import { ModeContext } from '../contexts/ModeContext'
@@ -22,6 +23,7 @@ export default function AppContainer() {
   const { currentItems, getItemsAsync, total } = useContext(FunctionsContext)
   const { setShowModal, setModalType } = useContext(ModalContext)
   const { mode, setMode } = useContext(ModeContext)
+  const { appType } = useContext(AppTypeContext)
 
   // import text
   const { appTitle, totalText, appConfirmButton } = textData
@@ -43,7 +45,7 @@ export default function AppContainer() {
 
   useEffect(() => {
     getItemsAsync()
-  }, [])
+  }, [appType])
 
   return (
     <section id="appContainer">

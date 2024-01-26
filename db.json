@@ -2,9 +2,9 @@
   "items": [
     {
       "id": "c994",
-      "name": "你好嗎",
-      "price": 100,
-      "quantity": 5
+      "name": "123",
+      "price": 123,
+      "quantity": 1
     },
     {
       "id": "0552",
@@ -17,12 +17,6 @@
       "name": "你好嗎",
       "price": 200,
       "quantity": 5
-    },
-    {
-      "id": "249d",
-      "name": "asdf",
-      "price": 2,
-      "quantity": 4
     }
   ]
 }

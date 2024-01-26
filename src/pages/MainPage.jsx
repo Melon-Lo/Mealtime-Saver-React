@@ -12,14 +12,11 @@ import AddItemModal from "../components/AddItemModal"
 import EditItemModal from '../components/EditItemModal'
 import AppTypeSwitch from '../components/AppTypeSwitch'
 
-import OrderItem from '../components/OderItem'
-
 export default function MainPage() {
   const { showModal, modalType } = useContext(ModalContext)
 
   return (
     <div id="mainPageContainer">
-      {/* <OrderItem /> */}
       <AppContainer />
       <AppTypeSwitch />
       { showModal === true && modalType === 'add' && <AddItemModal /> }

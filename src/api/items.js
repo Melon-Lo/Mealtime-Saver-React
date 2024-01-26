@@ -50,3 +50,14 @@ export const deleteItem = async (id) => {
     console.error('[Delete item failed]: ', error)
   }
 }
+
+// get orders
+export const getOrders = async () => {
+  try {
+    const res = await axios.get(`${baseUrl}/orders`)
+    console.log(res.data)
+    return res.data
+  } catch (error) {
+    console.error('[Get items failed]: ', error)
+  }
+}

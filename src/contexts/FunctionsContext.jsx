@@ -9,11 +9,10 @@ import { ModalContext } from './ModalContext'
 import { AppTypeContext } from './AppTypeContext'
 
 // import api
-import { getItems, createItem, deleteItem, patchItem } from '../api/items'
+import { getItems, createItem, deleteItem, patchItem, getOrders } from '../api/items'
 
 // import data
 import dummyData from '../data/dummyData'
-import { type } from '@testing-library/user-event/dist/type'
 
 export const FunctionsContext = createContext()
 
@@ -26,6 +25,7 @@ export default function FunctionsContextProvider({ children }) {
     name: '',
     price: undefined,
   })
+  const [currentOrders, setCurrentOrders] = useState([])
   const { setShowModal } = useContext(ModalContext)
   const { appType, setAppType } = useContext(AppTypeContext)
   const dummyDataItems = dummyData.items
@@ -254,6 +254,10 @@ export default function FunctionsContextProvider({ children }) {
     setAppType(switchTo)
   }
 
+  useEffect(() => {
+    getOrders()
+  }, [])
+
   return (
     <FunctionsContext.Provider
       value={{
@@ -265,6 +269,8 @@ export default function FunctionsContextProvider({ children }) {
         setInputPriceValue,
         selectedItem,
         setSelectedItem,
+        currentOrders,
+        setCurrentOrders,
         getItemsAsync,
         handleAddItem,
         handleDelete,

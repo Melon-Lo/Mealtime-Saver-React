@@ -73,6 +73,7 @@
     }
 
     .finish {
+      white-space: nowrap;
       width: 60px;
       height: 40px;
 
@@ -188,6 +189,7 @@
     }
 
     button {
+      white-space: nowrap;
       padding: .5rem 1rem;
       border: none;
       background-color: #f2ab39;

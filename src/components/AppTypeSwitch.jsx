@@ -1,8 +1,10 @@
 import { useContext } from "react"
+import { FunctionsContext } from '../contexts/FunctionsContext'
 import { AppTypeContext } from "../contexts/AppTypeContext"
 
 export default function AppTypeSwitch() {
-  const { appType, setAppType } = useContext(AppTypeContext)
+  const { switchAppType } = useContext(FunctionsContext)
+  const { appType } = useContext(AppTypeContext)
   const className = appType === 'normal' ? 'normal' : 'server'
 
   return (
@@ -15,15 +17,7 @@ export default function AppTypeSwitch() {
         </h5>
         <button
           className={'button ' + className}
-          onClick={() => {
-            let switchToClassName = ''
-            if (appType === 'normal') {
-              switchToClassName = 'server'
-            } else {
-              switchToClassName = 'normal'
-            }
-            setAppType(switchToClassName)
-          }}
+          onClick={() => switchAppType()}
         >
           切換模式
         </button>        

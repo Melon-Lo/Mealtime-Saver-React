@@ -27,7 +27,7 @@ export default function FunctionsContextProvider({ children }) {
     price: undefined,
   })
   const { setShowModal } = useContext(ModalContext)
-  const { appType } = useContext(AppTypeContext)
+  const { appType, setAppType } = useContext(AppTypeContext)
   const dummyDataItems = dummyData.items
 
   const total = currentItems.reduce((acc, curr) => {
@@ -243,6 +243,17 @@ export default function FunctionsContextProvider({ children }) {
     }
   }
 
+  ////////// switch appType //////////
+  const switchAppType = () => {
+    let switchTo
+    if (appType === 'normal') {
+      switchTo = 'server'
+    } else {
+      switchTo = 'normal'
+    }
+    setAppType(switchTo)
+  }
+
   return (
     <FunctionsContext.Provider
       value={{
@@ -262,6 +273,7 @@ export default function FunctionsContextProvider({ children }) {
         handleCalculate,
         handleAddItem,
         handleEditItem,
+        switchAppType,
         total,
       }}
     >

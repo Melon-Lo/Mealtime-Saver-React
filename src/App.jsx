@@ -12,8 +12,8 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <Routes>
-        <Route path='main' element={<MainPage />}></Route>
-        <Route path='*' element={<Navigate to="main" />}></Route>
+        <Route path='/' element={<MainPage />}></Route>
+        <Route path='*' element={<Navigate to="/" />}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -29,13 +29,13 @@ export default function FunctionsContextProvider({ children }) {
   const { setShowModal } = useContext(ModalContext)
   const { appType, setAppType } = useContext(AppTypeContext)
   const dummyDataItems = dummyData.items
+  const dummyDataOrders = dummyData.orders
 
   const total = currentItems.reduce((acc, curr) => {
     return acc + curr.price * curr.quantity
   }, 0)
 
   ////////// get items //////////
-
   const getItemsAsync = async () => {    
     try {
       let items
@@ -255,10 +255,15 @@ export default function FunctionsContextProvider({ children }) {
   }
 
   ////////// get orders //////////
-
   const getOrdersAsync = async () => {    
     try {
-      const orders = await getOrders()
+      let orders
+      if (appType === 'normal') {
+        const storedData = localStorage.getItem('orders')
+        orders = storedData
+      } else if (appType === 'server') {
+        orders = await getOrders()
+      }
       setCurrentOrders(orders.map(order => ({...order})))
     } catch (error) {
       console.error(error)
@@ -266,17 +271,28 @@ export default function FunctionsContextProvider({ children }) {
   }
 
   ////////// add a order ///////////
-
   const handleAddOrder = async () => {
-
     try {
-      const data = await createOrder({
-        id: currentOrders.length + 1,
-        title: `訂單#${currentOrders.length + 1}`,
-        total: total,
-        items: currentItems,
+      if (appType === 'server') {
+        const data = await createOrder({
+          id: currentOrders.length + 1,
+          title: `訂單#${currentOrders.length + 1}`,
+          total: total,
+          items: currentItems,
+        })
+      }
+
+      const result = await Swal.fire({
+        icon: "question",
+        title: "都確認好了嗎？",
+        showCancelButton: true,
+        confirmButtonColor: "#FF6600",
+        confirmButtonText: "確定",
+        cancelButtonText: "取消"
       })
-      
+  
+      if (!result.isConfirmed) return
+
       setCurrentOrders(prevOrders => {
         return [
           ...prevOrders,
@@ -289,16 +305,22 @@ export default function FunctionsContextProvider({ children }) {
         ]
       })
 
-      // Swal.fire({
-      //   icon: 'success',
-      //   text: '新增訂單成功！',
-      //   timer: 1000,
-      //   showConfirmButton: false
-      // })
+      Swal.fire({
+        icon: 'success',
+        text: '新增訂單成功！可至訂單頁查看～',
+        timer: 1000,
+        showConfirmButton: false
+      })
 
     } catch (error) {
       console.error(error)
     }
+  }
+
+  ////////// set orders to localStorage //////////
+  const setOrdersToLocalStorage = () => {
+    const jsonString = JSON.stringify(currentOrders)
+    localStorage.setItem('orders', jsonString)
   }
 
   return (
@@ -325,6 +347,7 @@ export default function FunctionsContextProvider({ children }) {
         switchAppType,
         getOrdersAsync,
         handleAddOrder,
+        setOrdersToLocalStorage,
         total,
       }}
     >

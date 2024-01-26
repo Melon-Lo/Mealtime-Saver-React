@@ -20,7 +20,7 @@ import { ModeContext } from '../contexts/ModeContext'
 import { textData } from '../data/textData'
 
 export default function AppContainer() {
-  const { currentItems, getItemsAsync, handleAddOrder, total } = useContext(FunctionsContext)
+  const { currentItems, getItemsAsync, handleAddOrder, total, setOrdersToLocalStorage, currentOrders } = useContext(FunctionsContext)
   const { setShowModal, setModalType } = useContext(ModalContext)
   const { mode, setMode } = useContext(ModeContext)
   const { appType } = useContext(AppTypeContext)
@@ -46,6 +46,10 @@ export default function AppContainer() {
   useEffect(() => {
     getItemsAsync()
   }, [appType])
+
+  useEffect(() => {
+    setOrdersToLocalStorage()
+  }, [currentOrders])
 
   return (
     <section id="appContainer">

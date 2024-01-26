@@ -40,7 +40,7 @@ export default function OrderItemWrapper() {
         <div className="orderCollection">
           {orderItemsData}
         </div>
-        <h3>{order.total}</h3>
+        <h3>總計：${order.total}</h3>
       </section>
     )
   })

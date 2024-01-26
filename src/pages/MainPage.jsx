@@ -11,8 +11,7 @@ import AppContainer from "../components/AppContainer"
 import AddItemModal from "../components/AddItemModal"
 import EditItemModal from '../components/EditItemModal'
 import AppTypeSwitch from '../components/AppTypeSwitch'
-
-import OrderItemWrapper from '../components/OrderItemWrapper'
+import Navbar from '../components/Navbar'
 
 export default function MainPage() {
   const { showModal, modalType } = useContext(ModalContext)
@@ -23,6 +22,7 @@ export default function MainPage() {
       <AppTypeSwitch />
       { showModal === true && modalType === 'add' && <AddItemModal /> }
       { showModal === true && modalType === 'edit' && <EditItemModal /> }
+      <Navbar />
     </div>
   )
 }

@@ -369,6 +369,58 @@
   }
 }
 
+#appTypeSwitch {
+  .switchWrapper {
+    margin-top: 50px;
+    min-width: 200px;
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1.2rem;
+
+    &.normal {
+      background-color: black;
+    }
+
+    &.server {
+      background-color: whitesmoke;
+    }
+
+    .title {
+      text-align: center;
+      width: 50%;
+      
+      &.normal {
+        color: whitesmoke;
+      }
+  
+      &.server {
+        color: black;
+      }
+    }
+
+    .button {
+      border: none;
+      margin: 10px;
+      width: 50%;
+      border-radius: 10px;
+      font-weight: 800;
+
+      &.normal {
+        background-color: whitesmoke;
+        color: black;
+      }
+  
+      &.server {
+        background-color: black;
+        color: white;
+      }
+    }    
+  }
+}
+
 .icon {
   cursor: pointer;
   width: 15px;

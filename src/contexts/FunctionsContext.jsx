@@ -247,11 +247,13 @@ export default function FunctionsContextProvider({ children }) {
     <FunctionsContext.Provider
       value={{
         currentItems,
+        setCurrentItems,
         inputNameValue,
+        setInputNameValue,
         inputPriceValue,
+        setInputPriceValue,
         selectedItem,
         setSelectedItem,
-        setCurrentItems,
         getItemsAsync,
         handleAddItem,
         handleDelete,

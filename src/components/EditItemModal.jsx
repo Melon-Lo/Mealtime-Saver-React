@@ -2,7 +2,7 @@ import './common/style.scss'
 import '../data/textData'
 
 // import hook
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 // import contexts
 import { FunctionsContext } from '../contexts/FunctionsContext'
@@ -13,10 +13,15 @@ import cross from '../assets/icons/cross_black.png'
 import { textData } from '../data/textData'
 
 export default function EditItemModal() {
-  const { handleNameChange, handlePriceChange, handleEditItem, selectedItem } = useContext(FunctionsContext)
+  const { handleNameChange, handlePriceChange, handleEditItem, selectedItem, inputNameValue, setInputNameValue, inputPriceValue, setInputPriceValue } = useContext(FunctionsContext)
   const { setShowModal } = useContext(ModalContext)
   const { id, name, price } = selectedItem
   const { modalTitle, namePlaceholder, pricePlaceholder, buttonContent } = textData.modals.editItemModal
+
+  useEffect(() => {
+    setInputNameValue(name)
+    setInputPriceValue(price)
+  }, [])
 
   return (
     <div id="editItemModal">
@@ -31,9 +36,10 @@ export default function EditItemModal() {
         </div>
         <div className="inputs">
           <div className="input name">
-            <h5>{name} →</h5>
+            <h5>{name}</h5>
             <input 
               type="text" 
+              value={inputNameValue}
               placeholder={namePlaceholder}
               onChange={(e) => {
                 handleNameChange?.(e.target.value)
@@ -41,9 +47,10 @@ export default function EditItemModal() {
             />
           </div>
           <div className="input price">
-            <h5>$ {price} →</h5>
+            <h5>$ {price}</h5>
             <input 
               type="number" 
+              value={inputPriceValue}
               placeholder={pricePlaceholder}
               onChange={(e) => {
                 handlePriceChange?.(e.target.value)
@@ -59,7 +66,6 @@ export default function EditItemModal() {
           {buttonContent}
         </button>
       </div>
-      
     </div>
   )
 }

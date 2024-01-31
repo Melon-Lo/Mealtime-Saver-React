@@ -260,10 +260,11 @@ export default function FunctionsContextProvider({ children }) {
       let orders
       if (appType === 'normal') {
         const storedData = localStorage.getItem('orders')
-        orders = storedData
+        orders = JSON.parse(storedData)
       } else if (appType === 'server') {
         orders = await getOrders()
       }
+
       setCurrentOrders(orders.map(order => ({...order})))
     } catch (error) {
       console.error(error)

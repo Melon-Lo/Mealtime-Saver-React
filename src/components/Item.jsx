@@ -31,7 +31,7 @@ export default function Item({
       <div className="itemPiece price">{'$' + price}</div>
       <div className="itemPiece quantity">
         <span>x<b>{quantity}</b></span>
-        <div className={currentPath === '/order' ? "hidden" : "controlButtons"}>
+        <div className={currentPath === '/Mealtime-Saver-React' ? 'controlButtons' : 'hidden'}>
           <div className="up">
             <img 
               onClick={() => {

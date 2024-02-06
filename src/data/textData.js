@@ -33,7 +33,7 @@ export const textData = {
     }
   },
   modes: {
-    editModeText: '【編輯模式】點擊項目右側的筆修改名字或價格',
+    editModeText: '【編輯模式】點擊右側的筆修改該項目的名字或價格',
     deleteModeText: '【刪除模式】點擊右側的 X 刪除該項目',
   },
   orderPage: {
@@ -44,7 +44,7 @@ export const textData = {
       subtotalTitle: '小計',
     },
     totalTitle: '總計',
-    noOrdersYet: '尚無訂單！',
+    noOrdersYet: 'NONONO～還沒有訂單唷',
   },
   navbar: {
     appName: '用餐救星',

@@ -9,6 +9,7 @@ import { FunctionsContext } from "../contexts/FunctionsContext"
 import Item from "./Item"
 
 // import data
+import noGif from '../assets/gif/no.gif'
 import { textData } from "../data/textData"
 
 export default function OrderItemWrapper() {
@@ -53,7 +54,8 @@ export default function OrderItemWrapper() {
   function NoOrdersYet() {
     return (
       <div className="noOrdersYet">
-        {noOrdersYet}
+        <p>{noOrdersYet}</p>
+        <img src={noGif} alt="noGif" />
       </div>
     )
   }

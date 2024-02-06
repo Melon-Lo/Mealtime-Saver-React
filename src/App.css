@@ -1,3 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
 body {
-  background-color: gray;
+  background: url(../src/assets/bg/bg_green.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: 'Noto Sans TC', sans-serif;
 }

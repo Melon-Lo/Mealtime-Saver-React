@@ -1,10 +1,12 @@
 import { useContext } from "react"
 import { FunctionsContext } from '../contexts/FunctionsContext'
 import { AppTypeContext } from "../contexts/AppTypeContext"
+import { textData } from "../data/textData"
 
 export default function AppTypeSwitch() {
   const { switchAppType } = useContext(FunctionsContext)
   const { appType } = useContext(AppTypeContext)
+  const { normalMode, serverMode, switchMode } = textData.appTypeSwitch
   const className = appType === 'normal' ? 'normal' : 'server'
 
   return (
@@ -13,13 +15,13 @@ export default function AppTypeSwitch() {
         <h5
           className={'title ' +  className}
         >
-          { appType === 'normal' ? '一般模式' : '伺服器模式'}
+          { appType === 'normal' ? normalMode : serverMode}
         </h5>
         <button
           className={'button ' + className}
           onClick={() => switchAppType()}
         >
-          切換模式
+          {switchMode}
         </button>        
       </div>
     </section>

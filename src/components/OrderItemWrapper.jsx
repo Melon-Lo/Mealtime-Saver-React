@@ -13,7 +13,7 @@ import { textData } from "../data/textData"
 
 export default function OrderItemWrapper() {
   const { currentOrders, getOrdersAsync } = useContext(FunctionsContext)
-  const { itemTitle, priceTitle, quantityTitle, subTotalTitle } = textData.orderPage.headings
+  const { itemTitle, priceTitle, quantityTitle, subtotalTitle } = textData.orderPage.headings
   const { totalTitle, noOrdersYet } = textData.orderPage
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function OrderItemWrapper() {
           <h5>{itemTitle}</h5>
           <h5>{priceTitle}</h5>
           <h5>{quantityTitle}</h5>
-          <h5>{subTotalTitle}</h5>
+          <h5>{subtotalTitle}</h5>
         </div>
         <div className="orderCollection">
           {orderItemsData}

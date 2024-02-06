@@ -1,5 +1,7 @@
 export const textData = {
   appTitle: '用餐救星',
+  totalText: '總計',
+  appConfirmButton: '確認',
   buttons: {
     addButton: '新增項目',
     editButton: '編輯模式',
@@ -34,8 +36,6 @@ export const textData = {
     editModeText: '【編輯模式】點擊項目右側的筆修改名字或價格',
     deleteModeText: '【刪除模式】點擊右側的 X 刪除該項目',
   },
-  totalText: '總計',
-  appConfirmButton: '確認',
   orderPage: {
     headings: {
       itemTitle: '項目',
@@ -49,5 +49,10 @@ export const textData = {
   navbar: {
     appName: '用餐救星',
     orderList: '訂單一覽',
+  },
+  appTypeSwitch: {
+    normalMode: '一般模式',
+    serverMode: '伺服器模式',
+    switchMode: '切換模式',
   }
 }

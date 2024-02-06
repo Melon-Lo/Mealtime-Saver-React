@@ -8,8 +8,13 @@ import { FunctionsContext } from "../contexts/FunctionsContext"
 // import component
 import Item from "./Item"
 
+// import data
+import { textData } from "../data/textData"
+
 export default function OrderItemWrapper() {
   const { currentOrders, getOrdersAsync } = useContext(FunctionsContext)
+  const { itemTitle, priceTitle, quantityTitle, subTotalTitle } = textData.orderPage.headings
+  const { totalTitle, noOrdersYet } = textData.orderPage
 
   useEffect(() => {
     getOrdersAsync()
@@ -32,22 +37,30 @@ export default function OrderItemWrapper() {
       <section className="orderItemWrapper" key={nanoid()}>
         <h3>{order.title}</h3>
         <div className="orderHeadings">
-          <h5>項目</h5>
-          <h5>價格</h5>
-          <h5>數量</h5>
-          <h5>小計</h5>
+          <h5>{itemTitle}</h5>
+          <h5>{priceTitle}</h5>
+          <h5>{quantityTitle}</h5>
+          <h5>{subTotalTitle}</h5>
         </div>
         <div className="orderCollection">
           {orderItemsData}
         </div>
-        <h3>總計：${order.total}</h3>
+        <h3>{totalTitle}：${order.total}</h3>
       </section>
     )
   })
 
+  function NoOrdersYet() {
+    return (
+      <div className="noOrdersYet">
+        {noOrdersYet}
+      </div>
+    )
+  }
+
   return (
     <>
-      {ordersData.length === 0 ? '尚無訂單' : ordersData }
+      {ordersData.length === 0 ? <NoOrdersYet /> : ordersData }
     </>
   )
 }

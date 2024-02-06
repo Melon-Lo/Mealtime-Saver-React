@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"
+import { textData } from "../data/textData"
 
 export default function Navbar() {
   const navigate = useNavigate()
   const currentPath = window.location.pathname
+  const { appName, orderList } = textData.navbar
 
   return (
     <section id="navbar">
@@ -10,13 +12,13 @@ export default function Navbar() {
         onClick={() => navigate('/')}
         className={currentPath === '/Mealtime-Saver-React' ? 'page mainPage active' : 'page mainPage'}
       >
-        用餐救星
+        {appName}
       </div>
       <div 
         onClick={() => navigate('/order')}
         className={currentPath === '/Mealtime-Saver-React/order' ? 'page orderPage active' : 'page orderPage'}
       >
-        訂單一覽
+        {orderList}
       </div>
     </section>
   )

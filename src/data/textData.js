@@ -35,5 +35,19 @@ export const textData = {
     deleteModeText: '【刪除模式】點擊右側的 X 刪除該項目',
   },
   totalText: '總計',
-  appConfirmButton: '確認'
+  appConfirmButton: '確認',
+  orderPage: {
+    headings: {
+      itemTitle: '項目',
+      priceTitle: '價格',
+      quantityTitle: '數量',
+      subtotalTitle: '小計',
+    },
+    totalTitle: '總計',
+    noOrdersYet: '尚無訂單！',
+  },
+  navbar: {
+    appName: '用餐救星',
+    orderList: '訂單一覽',
+  }
 }

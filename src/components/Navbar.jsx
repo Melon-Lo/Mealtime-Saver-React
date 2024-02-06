@@ -8,8 +8,9 @@ export default function Navbar() {
   const currentPath = window.location.pathname
   const { appName, orderList } = textData.navbar
   const { setMode } = useContext(ModeContext)
-  const mealtimeSaverPath = '/Mealtime-Saver-React' || '/Mealtime-Saver-React/'
-  const orderPath = '/Mealtime-Saver-React/order' || '/Mealtime-Saver-React/order/'
+  const mealtimeSaverTabClassName = currentPath === '/Mealtime-Saver-React' || currentPath === '/Mealtime-Saver-React/' ? 'page mainPage active' : 'page mainPage';
+  const orderPageTabClassName = currentPath === '/Mealtime-Saver-React/order' || currentPath === '/Mealtime-Saver-React/order/' ? 'page orderPage active' : 'page orderPage';
+  
 
   return (
     <section id="navbar">
@@ -18,7 +19,7 @@ export default function Navbar() {
           setMode('normal')
           navigate('/')
         }}
-        className={currentPath === mealtimeSaverPath ? 'page mainPage active' : 'page mainPage'}
+        className={mealtimeSaverTabClassName}
       >
         {appName}
       </div>
@@ -27,7 +28,7 @@ export default function Navbar() {
           setMode('normal')
           navigate('/order')
         }}
-        className={currentPath === orderPath ? 'page orderPage active' : 'page orderPage'}
+        className={orderPageTabClassName}
       >
         {orderList}
       </div>

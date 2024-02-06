@@ -58,6 +58,6 @@ export const textData = {
   footer: {
     copyright: '© Illustrated and crafted by Melon Lo, all rights reserved.',
     contact: 'Feel free to visit my github :)',
-    link: 'https://github.com/Melon-Lo',
+    link: 'https://github.com/Melon-Lo/Mealtime-Saver-React',
   }
 }

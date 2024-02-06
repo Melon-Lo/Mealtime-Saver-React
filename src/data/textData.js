@@ -21,14 +21,14 @@ export const textData = {
       modalTitle: '新增項目',
       nameTitle: '項目名',
       priceTitle: '價格',
-      namePlaceholder: '請輸入項目名',
-      pricePlaceholder: '請輸入價格',
+      namePlaceholder: '最多10個字元',
+      pricePlaceholder: '0～10000',
       buttonContent: '新增',
     },
     editItemModal: {
       modalTitle: '修改項目',
-      namePlaceholder: '請輸入新項目名',
-      pricePlaceholder: '請輸入新價格',
+      namePlaceholder: '最多10個字元',
+      pricePlaceholder: '0～10000',
       buttonContent: '修改',
     }
   },

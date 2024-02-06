@@ -60,7 +60,12 @@ export default function FunctionsContextProvider({ children }) {
 
   // price: 0-10000
   const handlePriceChange = (value) => {
-    setInputPriceValue(Math.min(value, 10000))
+    if (value > 10000) {
+      value = 10000
+    } else if (value < 0) {
+      value = 0
+    }
+    setInputPriceValue(value)
   }
 
   // submit

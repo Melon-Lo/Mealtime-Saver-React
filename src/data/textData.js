@@ -54,5 +54,10 @@ export const textData = {
     normalMode: '一般模式',
     serverMode: '伺服器模式',
     switchMode: '切換模式',
+  },
+  footer: {
+    copyright: '© Illustrated and crafted by Melon Lo, all rights reserved.',
+    contact: 'Feel free to visit my github :)',
+    link: 'https://github.com/Melon-Lo',
   }
 }

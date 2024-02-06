@@ -171,6 +171,7 @@ $modalBg: rgba(0, 0, 0, .5);
 
         .title {
           padding: 0 .5rem;
+          text-align: center;
         }
 
         .price {
@@ -487,12 +488,13 @@ $modalBg: rgba(0, 0, 0, .5);
   font-size: 1.2rem;
   font-weight: 800;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   background-color: $lightWhite;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
   div {
     width: 30%;
+    max-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -520,93 +522,134 @@ $modalBg: rgba(0, 0, 0, .5);
 }
 
 .orderItemWrapper {
-  margin-bottom: 2rem;
   width: 90%;
+  margin-bottom: 2rem;
   max-width: 768px;
-  background: url(../../assets/bg/bg_paper.png);
-  background-size: cover;
-  background-position: center;
-  
-  h3 {
-    text-align: center;
-    font-size: 1.5rem;
-  }
 
-  .orderHeadings {
-    height: 40px;
+  .orderItem {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    padding: .5rem 0;
+    margin-bottom: 2rem;
+    background: url(../../assets/bg/bg_paper.jpg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-    h5 {
-      font-size: 1rem;
+    h3 {
+      text-align: center;
+      font-size: 1.5rem;
     }
-  }
 
-  .orderCollection {
-
-    .item {
-      margin: 1rem 0;
-      font-size: .8rem;
+    .orderHeadings {
+      height: 40px;
       width: 100%;
       display: flex;
       justify-content: space-around;
       align-items: center;
 
-      .itemPiece {
-        width: 20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      h5 {
         font-size: 1rem;
-        color: $darkGray;
       }
+    }
 
-      .title {
-        padding: 0 .5rem;
-      }
+    .orderCollection {
 
-      .price {
-        transform: translateX(-10%);
-      }
-
-      .quantity {
-        // width: 50px;
-        // width: 50px;
+      .item {
+        margin: 1rem 0;
+        font-size: .8rem;
+        width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
 
-        span {
-          width: 50%;
+        .itemPiece {
+          width: 20%;
           display: flex;
           justify-content: center;
           align-items: center;
-
-          b {
-            font-size: 1.2rem;
-            margin-left: .3rem;
-          }
+          font-size: 1rem;
+          color: $darkGray;
         }
 
-        .controlButtons {
-          width: 50%;
+        .title {
+          padding: 0 .5rem;
+          text-align: center;
+        }
+
+        .price {
+          transform: translateX(-10%);
+        }
+
+        .quantity {
+          // width: 50px;
+          // width: 50px;
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
-          // margin-left: .5rem;
+
+          span {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            b {
+              font-size: 1.2rem;
+              margin-left: .3rem;
+            }
+          }
+
+          .controlButtons {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // margin-left: .5rem;
+          }
         }
       }
     }
-  }
+  }  
 }
+
+
 
 .noOrdersYet {
   margin-top: 5rem;
+  margin-bottom: 8rem;
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding: .5rem 0;
+  background: $darkGray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: .7rem;
+  
+  p {
+    text-align: center;
+    color: $lightWhite;
+    margin: 0;
+  }
+
+  a {
+    all: unset;
+    margin: 0;
+    color: $lightWhite;
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: .3s;
+    }
+  }
 }

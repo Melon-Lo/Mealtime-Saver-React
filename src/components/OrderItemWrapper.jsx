@@ -35,7 +35,7 @@ export default function OrderItemWrapper() {
     })
 
     return (
-      <section className="orderItemWrapper" key={nanoid()}>
+      <section className="orderItem" key={nanoid()}>
         <h3>{order.title}</h3>
         <div className="orderHeadings">
           <h5>{itemTitle}</h5>
@@ -61,8 +61,8 @@ export default function OrderItemWrapper() {
   }
 
   return (
-    <>
+    <div className="orderItemWrapper">
       {ordersData.length === 0 ? <NoOrdersYet /> : ordersData }
-    </>
+    </div>
   )
 }

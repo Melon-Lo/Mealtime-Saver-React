@@ -58,12 +58,16 @@ export default function FunctionsContextProvider({ children }) {
     setInputNameValue(value.trim())
   }
 
-  // price: 0-10000
+  // price: 0-10000, charAt(0) can't be 0
   const handlePriceChange = (value) => {
     if (value > 10000) {
       value = 10000
     } else if (value < 0) {
       value = 0
+    }
+
+    if (value.charAt(0) === '0') {
+      value = ''
     }
     setInputPriceValue(value)
   }

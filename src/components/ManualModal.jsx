@@ -62,7 +62,7 @@ export default function ManualModal() {
         1. In the order overview, you can view all the orders that have been submitted. The newest orders appear at the top, with older orders below.<br />
         2. Refreshing the page will clear all orders.<br />
         <br />
-        <h3>伺服器模式</h3>
+        <h3>Server mode</h3>
         1. After cloning this project, type npm run dev-server in the terminal to start the backend server (port: 3001).<br />
         2. Click "Switch Mode" at the bottom of the main page to switch to server mode.<br />
         3. In server mode, actions such as adding, editing, and deleting will modify the data on the backend.<br />

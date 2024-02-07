@@ -1,6 +1,7 @@
 import OrderItemWrapper from "../components/OrderItemWrapper"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
+import QuestionMark from "../components/QuestionMark"
 
 export default function OrderPage() {
   return (
@@ -8,6 +9,7 @@ export default function OrderPage() {
       <OrderItemWrapper />
       <Navbar />
       <Footer />
+      <QuestionMark />
     </div>
   )
 }

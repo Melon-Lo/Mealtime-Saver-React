@@ -682,15 +682,15 @@ $modalBg: rgba(0, 0, 0, .5);
   background-color: $modalBg;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   z-index: 10;
 
   .modalWrapper {
     position: relative;
-    margin-top: 20px;
     width: 85vw;
     max-width: 768px;
-    height: 80vh;
+    height: 70vh;
+    margin-top: 1rem;
     padding: 1rem;
     background: url(../../assets/bg/bg_paper.jpg);
     background-size: cover;

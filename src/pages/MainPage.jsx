@@ -14,6 +14,7 @@ import EditItemModal from '../components/EditItemModal'
 import AppTypeSwitch from '../components/AppTypeSwitch'
 import Footer from '../components/Footer'
 import QuestionMark from '../components/QuestionMark'
+import ManualModal from '../components/ManualModal'
 
 export default function MainPage() {
   const { showModal, modalType } = useContext(ModalContext)
@@ -25,6 +26,7 @@ export default function MainPage() {
       <AppTypeSwitch />
       { showModal === true && modalType === 'add' && <AddItemModal /> }
       { showModal === true && modalType === 'edit' && <EditItemModal /> }
+      { showModal === true && modalType === 'manual' && <ManualModal /> }
       <Footer />
       <QuestionMark />
     </div>

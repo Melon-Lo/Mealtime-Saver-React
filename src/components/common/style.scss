@@ -615,8 +615,6 @@ $modalBg: rgba(0, 0, 0, .5);
   }  
 }
 
-
-
 .noOrdersYet {
   margin-top: 5rem;
   margin-bottom: 8rem;
@@ -668,9 +666,71 @@ $modalBg: rgba(0, 0, 0, .5);
   align-items: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
- background-blend-mode: multiply,multiply;
+  background-blend-mode: multiply,multiply;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   border-radius: 50%;
   color: $pureWhite;
   font-weight: 800;
+}
+
+#manualModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $modalBg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  .modalWrapper {
+    position: relative;
+    margin-top: 20px;
+    width: 85vw;
+    max-width: 768px;
+    height: 80vh;
+    padding: 1rem;
+    background: url(../../assets/bg/bg_paper.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 12;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+
+    .switchButton {
+      all: unset;
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+      background-blend-mode: multiply,multiply;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+      color: $lightWhite;
+      padding: 0 .5rem;
+      border-radius: 5px;
+    }
+
+    img {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .textBox {
+      width: 100%;
+      height: 100%;
+      // padding: 1rem 1rem 0 1rem;
+      overflow-y: scroll;
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
 }

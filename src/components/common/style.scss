@@ -527,6 +527,7 @@ $modalBg: rgba(0, 0, 0, .5);
   width: 90%;
   margin-bottom: 2rem;
   max-width: 768px;
+  min-height: 600px;
 
   .orderItem {
     width: 100%;
@@ -618,7 +619,7 @@ $modalBg: rgba(0, 0, 0, .5);
 .noOrdersYet {
   margin-top: 5rem;
   margin-bottom: 8rem;
-  min-height: 500px;
+  min-height: 600px;
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;

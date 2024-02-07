@@ -56,7 +56,7 @@ export const textData = {
     switchMode: '切換模式',
   },
   footer: {
-    copyright: '© Illustrated and crafted by Melon Lo, all rights reserved.',
+    copyright: 'copyright © designed and created by Melon Lo, all rights reserved.',
     contact: 'Feel free to visit my github :)',
     link: 'https://github.com/Melon-Lo/Mealtime-Saver-React',
   }

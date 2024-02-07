@@ -427,6 +427,8 @@ $modalBg: rgba(0, 0, 0, .5);
 }
 
 #appTypeSwitch {
+  margin: 2rem 0;
+
   .switchWrapper {
     margin-top: 50px;
     min-width: 200px;
@@ -625,8 +627,8 @@ $modalBg: rgba(0, 0, 0, .5);
 }
 
 #footer {
-  position: fixed;
-  bottom: 0;
+  // position: fixed;
+  // bottom: 0;
   width: 100vw;
   padding: .5rem 0;
   background: $darkGray;

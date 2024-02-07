@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Mealtime-Saver-React/static/css/main.3981a4d1.css",
-    "main.js": "/Mealtime-Saver-React/static/js/main.33c7fda7.js",
+    "main.js": "/Mealtime-Saver-React/static/js/main.37d808ae.js",
     "static/media/bg_green.jpg": "/Mealtime-Saver-React/static/media/bg_green.b2ba20900fc73385ad8d.jpg",
     "static/media/red_pen_circle.png": "/Mealtime-Saver-React/static/media/red_pen_circle.fdb7b6a373c56f2047cf.png",
     "static/media/bg_paper.jpg": "/Mealtime-Saver-React/static/media/bg_paper.3807534e0b46abe9fd51.jpg",
@@ -15,10 +15,10 @@
     "static/media/down-arrow.svg": "/Mealtime-Saver-React/static/media/down-arrow.8e96b1c9209a5e8979e830aef8fe79d5.svg",
     "static/media/cross.svg": "/Mealtime-Saver-React/static/media/cross.b8781debfc462e365deaccbb16136e9d.svg",
     "main.3981a4d1.css.map": "/Mealtime-Saver-React/static/css/main.3981a4d1.css.map",
-    "main.33c7fda7.js.map": "/Mealtime-Saver-React/static/js/main.33c7fda7.js.map"
+    "main.37d808ae.js.map": "/Mealtime-Saver-React/static/js/main.37d808ae.js.map"
   },
   "entrypoints": [
     "static/css/main.3981a4d1.css",
-    "static/js/main.33c7fda7.js"
+    "static/js/main.37d808ae.js"
   ]
 }

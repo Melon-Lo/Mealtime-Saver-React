@@ -24,6 +24,7 @@ export default function Item({
   const { setShowModal, setModalType } = useContext(ModalContext)
   const { mode } = useContext(ModeContext)
   const currentPath = window.location.pathname
+  const itemClassName = currentPath === '/Mealtime-Saver-React' | currentPath === '/Mealtime-Saver-React/' ? 'controlButtons' : 'hidden'
 
   return (
     <div className="item">
@@ -31,7 +32,7 @@ export default function Item({
       <div className="itemPiece price">{'$' + price}</div>
       <div className="itemPiece quantity">
         <span>x<b>{quantity}</b></span>
-        <div className={currentPath === '/Mealtime-Saver-React' ? 'controlButtons' : 'hidden'}>
+        <div className={itemClassName}>
           <div className="up">
             <img 
               onClick={() => {
